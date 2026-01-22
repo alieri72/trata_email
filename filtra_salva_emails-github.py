@@ -32,7 +32,7 @@ def count_emails_in_inbox():
     return num_emails
 
 def save_emails_as_pdf():
-    """Percorre os emails da Inbox e guarda os que têm o assunto definido como PDF"""
+    """Percorre os emails da Inbox e guarda. como PDF, os que têm o assunto definido - ver mais abaixo e substituir XX-some-subject--XX"""
     outlook = win32.Dispatch("Outlook.Application").GetNamespace("MAPI")
     inbox = outlook.GetDefaultFolder(6)  # 6 = Inbox
 
@@ -45,7 +45,7 @@ def save_emails_as_pdf():
 
     # Percorre todos os emails na Inbox
     for email_item in inbox.Items:
-        # --- AQUI o utilizador deve ajustar o assunto do email que quer processar ---
+        # --- AQUI o utilizador deve ajustar o assunto do email que quer processar - substituir XX-some-subject--XX por outra coisa ---
         if email_item.Subject == "XX-some-subject--XX":
             # Extrai um nome personalizado do corpo do email (parte 3)
             subject_parts = email_item.Body.split('|')
